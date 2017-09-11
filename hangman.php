@@ -117,7 +117,11 @@
        The word: <span id="HangManGuessWord"><?php echo $_SESSION['guessWord']; ?></span><br />
       </div>
       <div id="HangManImage" style="position:absolute; top:85px; left:22px;">
-       <img src="http://www.hangman.symbolwebdesign.nl/hmimgs/hm<?php echo $_SESSION['error_amount']; ?>.bmp" id="HangManIMG" style="border:1px ridge #BBBBBB;" />
+
+
+       <img src="vmtn<?php echo $_SESSION['error_amount']; ?>.jpg" id="HangManIMG" width="25" style="border:1px ridge #BBBBBB;" /> 
+          <?php if($_SESSION['error_amount'] == 1) { echo "Novice";}?> 
+          <?php if($_SESSION['error_amount'] == 2) { echo "Enthusiast";}?> 
       </div>
       <div id="HangManMessage" style="font-size:16px; position:absolute; top:250px; width:200px; text-align:center;">
        <?php echo $_SESSION['message']; ?>
