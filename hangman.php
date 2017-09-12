@@ -104,13 +104,13 @@
     <head>
     <link rel="stylesheet" href="style1.css" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Hangman</title>
+    <title>VMTN Hangman</title>
     </head>
     <body onload="document.getElementById('HangManInput').focus()">
     <div style="background-color:#EFEFEF;position:relative; top:0px; left:0px; border:2px ridge #BBBBBB; width:200px; height:280px; font-family:Times New Roman; font-weight:normal; font-style:normal; text-decoration:none;">
      <form action="" method="post" onsubmit="return true;">
       <div id="HangManTitle" style="font-size:22px; position:absolute; top:5px; width:200px; text-align:center;">
-       Hangman
+       VMTN Hangman
       </div>
       <div id="HangManConsole" style="font-size:16px; position:absolute; top:34px; text-align:center; width:200px;">
        Enter a letter: <input type="text" maxlength="1" size="1" id="HangManInput" name="HangManLetter" /><input type="hidden" value="true" name="send_letter" /><input type="submit" value="Go" name="send_letter_button" /><br />
@@ -118,10 +118,31 @@
       </div>
       <div id="HangManImage" style="position:absolute; top:85px; left:22px;">
 
+          <?php
+                 if($_SESSION['error_amount'] == 0) {
+                    echo $_SESSION['error_amount'] . " Genius";
+                    echo "&nbsp;&nbsp;&nbsp;<img src=\"vmtn". $_SESSION['error_amount'];
+                    echo ".jpg\" id=\"HangManIMG\" width=\"25\" style=\"border:1px ridge #BBBBBB\" />";
+                 }
 
-       <img src="vmtn<?php echo $_SESSION['error_amount']; ?>.jpg" id="HangManIMG" width="25" style="border:1px ridge #BBBBBB;" /> 
-          <?php if($_SESSION['error_amount'] == 1) { echo "Novice";}?> 
-          <?php if($_SESSION['error_amount'] == 2) { echo "Enthusiast";}?> 
+                 if($_SESSION['error_amount'] == 1) {
+                    echo $_SESSION['error_amount'] . " Moderator";       
+                    echo "&nbsp;&nbsp;&nbsp;<img src=\"vmtn". $_SESSION['error_amount'];
+                    echo ".jpg\" id=\"HangManIMG\" width=\"25\" style=\"border:1px ridge #BBBBBB\" />";
+                 }
+
+                if($_SESSION['error_amount'] == 2) {
+                    echo $_SESSION['error_amount'] . " Enthusiast";
+                    echo "&nbsp;&nbsp;&nbsp;<img src=\"vmtn" . $_SESSION['error_amount'];
+                    echo ".jpg\" id=\"HangManIMG\" width=\"25\" style=\"border:1px ridge #BBBBBB\" />";
+                 }
+            ?>
+
+
+
+
+
+
       </div>
       <div id="HangManMessage" style="font-size:16px; position:absolute; top:250px; width:200px; text-align:center;">
        <?php echo $_SESSION['message']; ?>
