@@ -1,0 +1,6 @@
+
+This is just a training file, where I show max how to check files into github
+
+-eric
+
+
